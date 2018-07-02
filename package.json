@@ -1,0 +1,31 @@
+{
+  "name": "notice-puge",
+  "version": "1.0.0",
+  "description": "滚动通知",
+  "author": "PUGE <my@owo.help>",
+  "private": false,
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PUGE/Notice-PUGE.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PUGE/Notice-PUGE/issues"
+  },
+  "homepage": "https://github.com/PUGE/Notice-PUGE",
+  "keywords": [
+    "notice",
+    "vue",
+    "puge"
+  ],
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
