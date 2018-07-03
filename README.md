@@ -9,6 +9,30 @@ npm i -save notice-puge
 yarn add notice-puge
 ```
 
+使用
+```
+<template lang="pug">
+  <div>
+    <Notice v-model="notice"></Notice>
+  </div>
+</template>
+
+<script>
+import Notice from 'notice-puge'
+export default {
+  name: 'home',
+  components: {
+    Notice
+  },
+  data () {
+    return {
+      notice: "XX系统于2018-10-12故障，已下发短信提醒。",
+    }
+  }
+}
+</script>
+```
+
 ## 参数
 
 | 参数        | 含义         | 类型  | 是否必须  |
