@@ -11,23 +11,30 @@ export default {
   },
   watch: {
     text (newValue) {
-      const para = document.createElement("div")
-      para.classList.add('item')
-      para.style.top = '100%'
-      para.innerHTML = newValue
-      this.$el.appendChild(para)
-      setTimeout(() => {
-        this.$el.children[0].style.top = '-100px'
-        this.$el.children[1].style.top = '0'
+      // 判断是否处在动画状态
+      if (!this.isAnimation) {
+        console.log(this.isAnimation)
+        this.isAnimation = true
+        const para = document.createElement("div")
+        para.classList.add('item')
+        para.style.top = '100%'
+        para.innerHTML = newValue
+        this.$el.appendChild(para)
         setTimeout(() => {
-          this.$el.removeChild(this.$el.children[0])
-        }, 1000)
-      }, 0)
+          this.$el.children[0].style.top = '-100px'
+          this.$el.children[1].style.top = '0'
+          setTimeout(() => {
+            this.$el.removeChild(this.$el.children[0])
+            this.isAnimation = false
+          }, 1000)
+        }, 0)
+      }
     }
   },
   data () {
     return {
-      copyValue: this.text
+      copyValue: this.text,
+      isAnimation: false
     }
   }
 }
