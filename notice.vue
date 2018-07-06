@@ -11,9 +11,10 @@ export default {
   },
   watch: {
     text (newValue) {
+      // 判断
+      if (typeof newValue !== 'string') return
       // 判断是否处在动画状态
       if (!this.isAnimation) {
-        console.log(this.isAnimation)
         this.isAnimation = true
         const para = document.createElement("div")
         para.classList.add('item')
@@ -21,13 +22,13 @@ export default {
         para.innerHTML = newValue
         this.$el.appendChild(para)
         setTimeout(() => {
-          this.$el.children[0].style.top = '-100px'
+          this.$el.children[0].style.top = '-100%'
           this.$el.children[1].style.top = '0'
           setTimeout(() => {
             this.$el.removeChild(this.$el.children[0])
             this.isAnimation = false
-          }, 1000)
-        }, 0)
+          }, 500)
+        }, 500)
       }
     }
   },
@@ -42,19 +43,17 @@ export default {
 
 <style>
   .notice-puge-box {
-    height: 89px;
-    margin: 0 40px;
-    margin-top: 20px;
+    height: 90px;
     line-height: 90px;
-    color: #6c6c6c;
+    color: #009fe9;
     overflow: hidden;
     font-size: 1.4rem;
     position: relative;
-    width: calc(100% - 380px);
-    border-bottom: 1px solid #dddddd;
+    width: 100%;
   }
   .notice-puge-box .item {
     width: 100%;
+    height: 100%;
     position: absolute;
     transition: all 1s;
   }
